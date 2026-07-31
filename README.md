@@ -1,17 +1,5 @@
-LangChain Prompt Template 
+This project is an AI-powered assistant built using Python, LangChain, LangChain Expression Language (LCEL), and the Groq Llama 3.3 70B Versatile model. The application demonstrates how prompt templates can be combined with a large language model through an LCEL chain to generate intelligent and context-aware responses. Instead of manually invoking the prompt and language model, the project uses LangChain's pipeline operator (|) to create a clean, modular, and maintainable workflow.
 
-This project demonstrates the basics of LangChain by integrating an LLM chat model with a Prompt Template. In prompt_template.py, a LangChain chat model is used to process a structured prompt that asks the model to explain Machine Learning as if teaching a 10-year-old child. The project showcases how different prompt styles can guide the model to produce responses tailored to a specific audience and context.
+The assistant includes three specialized prompt templates, each designed for a different use case. The Teacher assistant explains complex topics in simple and easy-to-understand language, making learning more accessible. The Career Advisor assistant provides career guidance, recommends relevant skills and technologies, and offers personalized advice based on the user's goals. The Code Reviewer assistant analyzes code, identifies potential issues, suggests improvements, follows coding best practices, and recommends optimizations when appropriate.
 
-now in below i mention some template you can try it by replacing it,
-
-template = PromptTemplate.from_template(
-    "Explain {topic} like I am 10 years old."
-)
-
-template = PromptTemplate.from_template(
-    "Explain {topic} as a university professor."
-)
-
-template = PromptTemplate.from_template(
-    "Give five bullet points about {topic}."
-)
+The project is organized into separate modules to improve readability and maintainability. The language model configuration is stored in config.py, all prompt templates are managed in prompt_templates.py, and the main application logic is implemented in app.py. Sensitive information, such as the Groq API key, is securely stored in a .env file, while project dependencies are listed in requirements.txt.

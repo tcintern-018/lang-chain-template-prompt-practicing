@@ -1,21 +1,46 @@
-from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
-from langchain_groq import ChatGroq
 
-load_dotenv()
+teacher_prompt = PromptTemplate.from_template(
+    """
+You are an experienced teacher.
 
-llm = ChatGroq(model="llama-3.3-70b-versatile")
+Explain the following topic in simple and easy language.
 
-template = PromptTemplate.from_template(
-     "Explain {topic} like I am 10 years old."
+Topic:
+{topic}
+"""
 )
 
-prompt = template.invoke(
-    {
-        "topic": "Machine Learning"
-    }
+career_prompt = PromptTemplate.from_template(
+    """
+You are a professional career advisor.
+
+Guide the student based on the following information.
+
+Student Information:
+{topic}
+
+Provide:
+- Career Suggestions
+- Skills to Learn
+- Recommended Technologies
+- Final Advice
+"""
 )
 
-response = llm.invoke(prompt)
+code_review_prompt = PromptTemplate.from_template(
+    """
+You are a senior software engineer.
 
-print(response.content)
+Review the following code.
+
+Code:
+{topic}
+
+Provide:
+- Errors (if any)
+- Improvements
+- Best Practices
+- Optimized Version (if needed)
+"""
+)
